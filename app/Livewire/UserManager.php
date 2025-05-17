@@ -32,11 +32,6 @@ class UserManager extends Component
         ]);
     }
 
-    public function mount()
-    {
-        $this->users = User::latest()->take(1000)->get();
-    }
-
     public function create()
     {
         $this->validate();
@@ -74,7 +69,7 @@ class UserManager extends Component
             'users.*.nickname' => 'required|string|max:255',
             'users.*.first_name' => 'required|string|max:255',
             'users.*.last_name' => 'required|string|max:255',
-            'users.*.email' => 'required|email|max:255',
+            'users.*.email' => 'string|max:255|unique:users,email,' . $this->user_id,
             'mobile' => 'required|string|max:20|unique:users,mobile,' . $this->user_id,
         ]);
 

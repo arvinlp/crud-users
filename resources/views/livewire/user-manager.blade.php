@@ -72,5 +72,5 @@
         </tbody>
     </table>
 
-    {{-- {{ !isset($users) ? '' : $users->links() }}  --}}
+    {{ $users->links() }} 
 </div>
