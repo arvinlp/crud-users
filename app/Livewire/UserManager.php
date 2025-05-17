@@ -22,6 +22,21 @@ class UserManager extends Component
         'users.*.email' => 'required|email|max:255',
     ];
 
+
+    public function render()
+    {
+        $users = User::orderBy('id', 'desc')->paginate(50);
+
+        return view('livewire.user-manager', [
+            'users' => $users,
+        ]);
+    }
+
+    public function mount()
+    {
+        $this->users = User::latest()->take(1000)->get();
+    }
+
     public function create()
     {
         $this->validate();
@@ -43,9 +58,11 @@ class UserManager extends Component
     {
         $user = User::findOrFail($id);
         $this->user_id = $user->id;
+        $this->nickname = $user->nickname;
         $this->first_name = $user->first_name;
         $this->last_name = $user->last_name;
         $this->mobile = $user->mobile;
+        $this->email = $user->email;
         $this->isEdit = true;
     }
 
@@ -82,12 +99,5 @@ class UserManager extends Component
     public function resetForm()
     {
         $this->reset(['user_id', 'nickname', 'first_name', 'last_name', 'mobile', 'email', 'password', 'isEdit']);
-    }
-
-    public function render()
-    {
-        return view('livewire.user-manager', [
-            'users' => User::orderBy('id', 'desc')->paginate(50),
-        ]);
     }
 }

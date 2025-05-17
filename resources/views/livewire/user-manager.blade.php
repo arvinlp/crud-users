@@ -37,7 +37,7 @@
 
     <hr>
 
-    <table>
+    <table class="table-auto w-100">
         <thead>
             <tr>
                 <th>#</th>
@@ -72,5 +72,5 @@
         </tbody>
     </table>
 
-    {{ !isset($users) ? '' : $users->links() }} 
+    {{-- {{ !isset($users) ? '' : $users->links() }}  --}}
 </div>
