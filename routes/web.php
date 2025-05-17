@@ -19,10 +19,11 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
     //
     Route::get('/user-manager', \App\Livewire\UserManager::class)->name('user-manager');
-    Route::get('/user-manager/{user}', \App\Livewire\UserManager::class)->name('user-manager.user');
-    Route::get('/user-manager/{user}/edit', \App\Livewire\UserManager::class)->name('user-manager.user.edit');
-    Route::get('/user-manager/{user}/delete', \App\Livewire\UserManager::class)->name('user-manager.user.delete');
-    Route::get('/user-manager/{user}/reset-password', \App\Livewire\UserManager::class)->name('user-manager.user.reset-password');
+    // Route::get('/user-manager/{user}', \App\Livewire\UserManager::class)->name('user-manager.user');
+    // Route::get('/user-manager/{user}/edit', \App\Livewire\UserManager::class)->name('user-manager.user.edit');
+    // Route::get('/user-manager/{user}/delete', \App\Livewire\UserManager::class)->name('user-manager.user.delete');
+    // Route::get('/user-manager/{user}/reset-password', \App\Livewire\UserManager::class)->name('user-manager.user.reset-password');
 });
 
 require __DIR__.'/auth.php';
+Route::get('/user-manager', \App\Livewire\UserManager::class)->name('user-manager');

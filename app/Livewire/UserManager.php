@@ -8,8 +8,6 @@ use Livewire\WithPagination;
 
 class UserManager extends Component
 {
-    public $users;
-
     use WithPagination;
 
     public $isEdit = false;
