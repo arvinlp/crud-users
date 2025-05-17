@@ -20,7 +20,6 @@ class UserManager extends Component
         'users.*.email' => 'required|email|max:255',
     ];
 
-
     public function render()
     {
         $users = User::orderBy('id', 'desc')->paginate(50);
