@@ -1,8 +1,8 @@
 <div>
-    <flux:callout class="mb-6">
-        <h2>{{ $isEdit ? 'Edit User' : 'Create User' }}</h2>
+    <flux:callout class=" mb-6">
+        <h2>{{ $isEdit ? 'Edit User' : 'Create New User' }}</h2>
 
-        <form class="" wire:submit.prevent="{{ $isEdit ? 'update' : 'create' }}">
+        <form class="grid grid-cols-2 gap-4" wire:submit.prevent="{{ $isEdit ? 'update' : 'create' }}">
             <flux:field class="mb-3">
                 <flux:input wire:model="nickname" :label="__('Nickname')" type="text" required autofocus
                     autocomplete="nickname" placeholder="Johnny" />
@@ -45,10 +45,10 @@
 
     <hr>
 
-    <table class="table-fixed">
-        <thead>
+    <table class="min-w-full divide-y divide-white-200 text-sm mb-3">
+        <thead class="bg-black-100">
             <tr>
-                <th>#</th>
+                <th class="py-3 px-2">#</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Mobile</th>
@@ -56,20 +56,20 @@
                 <th>Actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="divide-y divide-black-200">
             @if (!isset($users))
                 <tr>
                     <td colspan="6" class="text-center">No users found</td>
                 </tr>
             @else
                 @foreach ($users as $user)
-                    <tr wire:key="user-{{ $user->id }}">
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->first_name }}</td>
-                        <td>{{ $user->last_name }}</td>
-                        <td>{{ $user->mobile }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
+                    <tr wire:key="user-{{ $user->id }}" class="hover:bg-gray-100 hover:text-black cursor-pointer transition duration-200">
+                        <td class="py-3">{{ $user->id }}</td>
+                        <td class="py-3">{{ $user->first_name }}</td>
+                        <td class="py-3">{{ $user->last_name }}</td>
+                        <td class="py-3">{{ $user->mobile }}</td>
+                        <td class="py-3">{{ $user->email }}</td>
+                        <td class="text-center py-3">
                             <flux:button.group>
                                 <flux:button wire:click="edit({{ $user->id }})">Edit</flux:button>
                                 <flux:button wire:click="delete({{ $user->id }})"
@@ -81,6 +81,7 @@
             @endif
         </tbody>
     </table>
-
-    {{ $users->links() }}
+    <div class="mt-6">
+        {{ $users->links() }}
+    </div>
 </div>
