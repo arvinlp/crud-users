@@ -69,8 +69,8 @@
                         <td class="py-3">{{ $user->last_name }}</td>
                         <td class="py-3">{{ $user->mobile }}</td>
                         <td class="py-3">{{ $user->email }}</td>
-                        <td class="text-center py-3">
-                            <flux:button.group>
+                        <td class="py-3">
+                            <flux:button.group class="w-full">
                                 <flux:button wire:click="edit({{ $user->id }})">Edit</flux:button>
                                 <flux:button wire:click="delete({{ $user->id }})"
                                     wire:confirm="Are you sure you want to delete this post?">Delete</flux:button>
