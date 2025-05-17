@@ -13,11 +13,11 @@ class UserManager extends Component
     public $isEdit = false;
     public $user_id, $nickname, $first_name, $last_name, $mobile, $email, $password;
     protected $rules = [
-        'users.*.nickname' => 'required|string|max:255',
-        'users.*.first_name' => 'required|string|max:255',
-        'users.*.last_name' => 'required|string|max:255',
-        'users.*.mobile' => 'required|string|max:11',
-        'users.*.email' => 'required|email|max:255',
+        'nickname' => 'required|string|max:255',
+        'first_name' => 'required|string|max:255',
+        'last_name' => 'required|string|max:255',
+        'mobile' => 'required|string|max:11',
+        'email' => 'required|email|max:255',
     ];
 
     public function render()
@@ -44,6 +44,7 @@ class UserManager extends Component
 
         $this->resetForm();
         session()->flash('message', 'User created successfully.');
+        return route('user-manager');
     }
 
     public function edit($id)
@@ -63,10 +64,10 @@ class UserManager extends Component
         $user = User::findOrFail($this->user_id);
 
         $this->validate([
-            'users.*.nickname' => 'required|string|max:255',
-            'users.*.first_name' => 'required|string|max:255',
-            'users.*.last_name' => 'required|string|max:255',
-            'users.*.email' => 'string|max:255|unique:users,email,' . $this->user_id,
+            'nickname' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'string|max:255|unique:users,email,' . $this->user_id,
             'mobile' => 'required|string|max:20|unique:users,mobile,' . $this->user_id,
         ]);
 
@@ -80,12 +81,14 @@ class UserManager extends Component
 
         $this->resetForm();
         session()->flash('message', 'User updated successfully.');
+        return route('user-manager');
     }
 
     public function delete($id)
     {
         User::findOrFail($id)->delete();
         session()->flash('message', 'User deleted successfully.');
+        return route('user-manager');
     }
 
     public function resetForm()
