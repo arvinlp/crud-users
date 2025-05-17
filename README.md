@@ -29,10 +29,6 @@ This project is a mini-application to manage users, implementing full CRUD opera
   but you **must not submit the task description directly to AI** and receive a ready-made solution.
 * The developer is responsible for identifying and applying necessary **performance optimizations** for displaying large user datasets.
 
-## 🚀 Project Submission
-
-After completing the project, please **upload it to your GitHub** and send us the **repository link**.
-
 ---
 
 # 📌 مینی‌پروژه CRUD کاربران با Livewire (فارسی)
@@ -65,7 +61,3 @@ After completing the project, please **upload it to your GitHub** and send us th
 * استفاده از ابزارهای **هوش مصنوعی** در روند توسعه بلامانع است،
   اما نباید صورت‌مسئله مستقیماً به هوش مصنوعی داده شود و پاسخ آماده دریافت گردد.
 * مسئولیت پیاده‌سازی ملاحظات عملکردی (performance) برای نمایش تعداد زیاد کاربران بر عهده توسعه‌دهنده است.
-
-## 🚀 تحویل پروژه
-
-پس از اتمام کار، لطفاً **لینک پروژه در گیت‌هاب** خود را برای ما ارسال نمایید.
