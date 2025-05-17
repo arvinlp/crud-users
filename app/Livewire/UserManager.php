@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\Livewire;
 
 class UserManager extends Component
 {

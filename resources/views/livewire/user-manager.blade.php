@@ -2,7 +2,7 @@
     <flux:callout class=" mb-6">
         <h2>{{ $isEdit ? 'Edit User' : 'Create New User' }}</h2>
 
-        <form class="grid grid-cols-2 gap-4" wire:submit.prevent="{{ $isEdit ? 'update' : 'create' }}">
+        <form id="user-form" class="grid grid-cols-2 gap-4" wire:submit.prevent="{{ $isEdit ? 'update' : 'create' }}">
             <flux:field class="mb-3">
                 <flux:input wire:model="nickname" :label="__('Nickname')" type="text" required autofocus
                     autocomplete="nickname" placeholder="Johnny" />
@@ -85,3 +85,4 @@
         {{ $users->links() }}
     </div>
 </div>
+
